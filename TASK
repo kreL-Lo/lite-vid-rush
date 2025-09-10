@@ -1,0 +1,54 @@
+Take-Home (Lite) — Mini Vidrush Editor + Single-Route Render (Next.js)
+Objective
+Build a tiny web video editor and render a short MP4 on the server using Remotion inside a Next.js app (Node runtime). Emphasis: problem-solving and code quality.
+
+---
+
+Scope
+Editor (frontend)
+One media track and one text overlay track.
+Core ops: add, trim, reorder, **scrub/play.
+Simple inspector for the selected item’s properties.
+Keep it minimal (no undo/redo, no autosave).
+
+Preview (frontend)
+In-app playback that roughly matches what will be rendered.
+
+Render (server-side in Next.js)
+A single POST /api/render endpoint that accepts your editor state and returns a short MP4 (≤5 seconds, 720p is fine).
+Do it synchronously (no job queue/polling). Local file or streamed response is OK.
+Output should be deterministic for identical inputs.
+
+---
+
+Requirements & Constraints
+Design your own data model for the editor state → renderer input. Explain it briefly in the README.
+Keep everything in Next.js; no external databases or cloud services.
+Handle errors gracefully (e.g., missing/slow media).
+AI tools are allowed (Cursor/Copilot/LLMs). Include a short AI usage log (what you prompted, what you accepted/changed, why).
+
+---
+
+Evaluation Criteria
+Problem-solving & decomposition: clear data model, sensible boundaries, reasonable trade-offs, deterministic render.
+Code quality & design: readable TypeScript, small components/functions, clear naming, purposeful comments, simple structure.
+Editor UX: predictable trimming/reordering, smooth scrubbing, intuitive inspector.
+Testing: a couple of unit tests for your core timeline logic (e.g., trim/reorder).
+
+---
+
+Deliverables
+A Git repository with:
+
+  
+The Next.js app (editor UI + POST /api/render).
+A README (how to run, your data model, key decisions, limitations).
+An AI usage log (2–10 bullets).
+A short demo video/GIF showing the editor flow and a rendered result.
+
+---
+
+Nice-to-Haves (optional)
+Keyboard shortcuts (play/pause, nudge).
+A tiny text transition (e.g., fade) supported end-to-end.
+A basic “download” page for the final MP4.
